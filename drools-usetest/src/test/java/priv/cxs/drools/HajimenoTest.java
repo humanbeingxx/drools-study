@@ -104,5 +104,9 @@ public class HajimenoTest {
         KieSession kieSession = kieContainer.newKieSession();
 
         Assert.assertNotNull(kieSession);
+
+        KieSession session = kieContainer.newKieSession("KSessionRemote1");
+
+        Assert.assertNotNull(session);
     }
 }
