@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="KBase" equalsBehavior="equality" declarativeAgenda="enabled" default="true">
+        <ksession name="KSession1_1" type="stateful" default="true"/>
+        <ksession name="KSession1_2" type="stateless" default="false" beliefSystem="jtms"/>
+    </kbase>
+    <kbase name="KBase2" equalsBehavior="equality" declarativeAgenda="enabled">
+        <ksession name="KSession2_1" type="stateful"/>
+        <ksession name="KSession2_2" type="stateless" default="false" beliefSystem="jtms"/>
+    </kbase>
+</kmodule>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="KBaseRemote" equalsBehavior="equality" declarativeAgenda="enabled">
+        <ksession name="KSessionRemote1" type="stateful" default="true"/>
+        <ksession name="KSessionRemote2" type="stateless" default="false" beliefSystem="jtms"/>
+    </kbase>
+</kmodule>
