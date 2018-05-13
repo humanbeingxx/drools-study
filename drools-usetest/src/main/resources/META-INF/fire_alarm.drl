@@ -1,0 +1,11 @@
+package priv.cxs.drools.usetest.fireroom
+
+rule "when there is a fire turn on then sprinkler"
+
+when
+    Fire($room:room)
+    $sprinkler : Sprinkler(room == $room)
+then
+    modify($sprinkler){ setOn(true)};
+    System.out.println("Turn on the sprinkler for room " + $room.getName());
+end
