@@ -11,7 +11,7 @@ import priv.cxs.drools.usetest.fireroom.Sprinkler;
 import java.util.HashMap;
 
 /**
- * Copyright © 2018 QUNAR.COM. All rights reserved.
+
  *
  * @author xiaoshuang.cui
  * @date 2018/5/14 上午1:57

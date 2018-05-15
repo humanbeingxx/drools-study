@@ -6,7 +6,7 @@ import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.StatelessKieSession;
 
 /**
- * Copyright © 2018 QUNAR.COM. All rights reserved.
+
  *
  * @author xiaoshuang.cui
  * @date 2018/5/14 上午11:31

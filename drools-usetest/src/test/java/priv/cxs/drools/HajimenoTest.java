@@ -22,7 +22,7 @@ import org.kie.api.runtime.conf.ClockTypeOption;
 import java.io.File;
 
 /**
- * Copyright © 2018 QUNAR.COM. All rights reserved.
+
  *
  * @author xiaoshuang.cui
  * @date 2018/5/10 下午8:39
