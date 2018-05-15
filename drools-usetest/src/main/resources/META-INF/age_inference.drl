@@ -1,0 +1,65 @@
+package priv.cxs.drools.usetest.ageinfer
+
+rule "Infer Child"
+
+when
+    $p : Person(age < 16)
+then
+    insertLogical(new Person.IsChild($p));
+end
+
+rule "Infer Adult"
+
+when
+    $p : Person(age >= 16)
+then
+    insertLogical(new Person.IsAdult($p));
+end
+
+
+rule "Issue Child Bus Pass"
+
+when
+    $p:Person()
+    Person.IsChild(person == $p)
+then
+    insertLogical(new ChildBusPass($p));
+    System.out.println("new ChildBusPass");
+end
+
+rule "Issue Adult Bus Pass"
+
+when
+    $p:Person()
+    Person.IsAdult(person == $p)
+then
+    insertLogical(new AdultBusPass($p));
+    System.out.println("new AdultBusPass");
+end
+
+rule "Child BusPass makes Pass"
+
+when
+    $p : Person()
+    ChildBusPass(person == $p)
+then
+    $p.setPassType(Person.CHILD);
+end
+
+rule "Adult BusPass makes Pass"
+
+when
+    $p : Person()
+    AdultBusPass(person == $p)
+then
+    $p.setPassType(Person.ADULT);
+end
+
+rule "Return ChildBusPass Request"
+
+when
+    $p : Person()
+    not(ChildBusPass(person == $p))
+then
+    insertLogical(new AdultBusPass($p));
+end
