@@ -1,22 +1,24 @@
 package priv.cxs.drools.usetest.cashflow
 
 rule "increase balance for credits"
-
+    agenda-group "credit"
 when
     $ap : AccountPeriod()
     $acc : Account( $accountNo : accountNo )
     CashFlow(type == CREDIT, accountNo == $accountNo, date >= $ap.startDate && date <= $ap.endDate, $amount:amount)
 then
     $acc.setBalance($acc.getBalance() + $amount);
+    System.out.println("credit");
 end
 
 
 rule "decrease balance for debits"
-
+    agenda-group "credit"
 when
     $ap : AccountPeriod()
     $acc : Account( $accountNo : accountNo )
     CashFlow(type == DEBIT, accountNo == $accountNo, date >= $ap.startDate && date <= $ap.endDate, $amount:amount)
 then
     $acc.setBalance($acc.getBalance() - $amount);
+    System.out.println("debit");
 end

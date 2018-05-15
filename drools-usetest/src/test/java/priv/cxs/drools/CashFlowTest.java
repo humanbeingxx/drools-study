@@ -24,6 +24,11 @@ public class CashFlowTest {
     @Test
     public void test() throws ParseException {
         KieSession session = SessionUtil.getStatefulSession();
+
+        // 改变顺序
+        session.getAgenda().getAgendaGroup("debit").setFocus();
+        session.getAgenda().getAgendaGroup("credit").setFocus();
+
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         Account account = Account.builder().balance(1000.0).accountNo(123456L).build();
@@ -63,6 +68,9 @@ public class CashFlowTest {
         session.fireAllRules();
 
         Assert.assertEquals(1020.0, account.getBalance(), 0.1);
+
+        // 执行完需要重新setFocus，否则不会再执行
+        session.getAgenda().getAgendaGroup("credit").setFocus();
 
         // another period
         AccountPeriod accountPeriod2 = AccountPeriod.builder()
