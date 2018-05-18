@@ -1,0 +1,34 @@
+package priv.cxs.drools.usetest.sheet;
+
+rule "17->18"
+
+when
+    $a : Person(age:17)
+then
+    $a.setAge(18);
+end
+
+rule "18->19"
+
+when
+    $a : Person( age:18)
+then
+    $a.setAge(19);
+end
+
+rule "19->20"
+
+when
+    $a : Person( age:19)
+then
+    $a.setAge(20);
+end
+
+
+rule "20->99"
+
+when
+    $a : Person( age:20)
+then
+    $a.setAge(99);
+end
