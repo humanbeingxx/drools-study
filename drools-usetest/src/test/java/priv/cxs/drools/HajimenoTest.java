@@ -90,23 +90,4 @@ public class HajimenoTest {
 
         Assert.assertNotNull(kieContainer);
     }
-
-    @Test
-    public void testFromFile() {
-        KieServices kieServices = KieServices.Factory.get();
-        KieRepository repository = kieServices.getRepository();
-
-        KieModule kieModule = repository.addKieModule(kieServices.getResources().newFileSystemResource(
-                new File(HajimenoTest.class.getClassLoader().getResource("drools-repo-1.0.0.jar").getFile())));
-
-        KieContainer kieContainer = kieServices.newKieContainer(kieModule.getReleaseId());
-
-        KieSession kieSession = kieContainer.newKieSession();
-
-        Assert.assertNotNull(kieSession);
-
-        KieSession session = kieContainer.newKieSession("KSessionRemote1");
-
-        Assert.assertNotNull(session);
-    }
 }

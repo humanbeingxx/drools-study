@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.StatelessKieSession;
-import priv.cxs.drools.usetest.Applicant;
-import priv.cxs.drools.usetest.Application;
+import priv.cxs.drools.usetest.drls.Applicant;
+import priv.cxs.drools.usetest.drls.Application;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

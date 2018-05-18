@@ -1,4 +1,4 @@
-package priv.cxs.drools.usetest;
+package priv.cxs.drools.usetest.drls;
 
 import lombok.Builder;
 import lombok.Data;

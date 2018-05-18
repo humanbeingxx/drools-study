@@ -3,10 +3,9 @@ package priv.cxs.drools;
 import com.google.common.collect.Maps;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
-import org.kie.api.runtime.StatelessKieSession;
-import priv.cxs.drools.usetest.fireroom.Fire;
-import priv.cxs.drools.usetest.fireroom.Room;
-import priv.cxs.drools.usetest.fireroom.Sprinkler;
+import priv.cxs.drools.usetest.drls.fireroom.Fire;
+import priv.cxs.drools.usetest.drls.fireroom.Room;
+import priv.cxs.drools.usetest.drls.fireroom.Sprinkler;
 
 import java.util.HashMap;
 

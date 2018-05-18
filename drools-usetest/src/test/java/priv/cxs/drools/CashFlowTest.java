@@ -3,15 +3,15 @@ package priv.cxs.drools;
 import org.junit.Assert;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
-import priv.cxs.drools.usetest.cashflow.Account;
-import priv.cxs.drools.usetest.cashflow.AccountPeriod;
-import priv.cxs.drools.usetest.cashflow.CashFlow;
+import priv.cxs.drools.usetest.drls.cashflow.Account;
+import priv.cxs.drools.usetest.drls.cashflow.AccountPeriod;
+import priv.cxs.drools.usetest.drls.cashflow.CashFlow;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import static priv.cxs.drools.usetest.cashflow.CashFlow.CREDIT;
-import static priv.cxs.drools.usetest.cashflow.CashFlow.DEBIT;
+import static priv.cxs.drools.usetest.drls.cashflow.CashFlow.CREDIT;
+import static priv.cxs.drools.usetest.drls.cashflow.CashFlow.DEBIT;
 
 /**
 

@@ -1,4 +1,4 @@
-package priv.cxs.drools.usetest.ageinfer;
+package priv.cxs.drools.usetest.drls.ageinfer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

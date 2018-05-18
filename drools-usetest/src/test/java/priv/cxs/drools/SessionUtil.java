@@ -22,6 +22,13 @@ public class SessionUtil {
     static KieSession getStatefulSession() {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        kieContainer.newKieSession("sheetSession");
         return kieContainer.newKieSession("KSession1_1");
+    }
+
+    static KieSession getSheetSession() {
+        KieServices kieServices = KieServices.Factory.get();
+        KieContainer kieContainer = kieServices.getKieClasspathContainer();
+        return kieContainer.newKieSession("sheetSession");
     }
 }

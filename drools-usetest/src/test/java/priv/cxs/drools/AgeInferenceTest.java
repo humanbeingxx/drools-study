@@ -3,7 +3,7 @@ package priv.cxs.drools;
 import org.junit.Assert;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
-import priv.cxs.drools.usetest.ageinfer.Person;
+import priv.cxs.drools.usetest.drls.ageinfer.Person;
 
 /**
  * Copyright © 2018 QUNAR.COM. All rights reserved.

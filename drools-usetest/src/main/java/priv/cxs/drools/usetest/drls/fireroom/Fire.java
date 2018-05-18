@@ -1,4 +1,4 @@
-package priv.cxs.drools.usetest.fireroom;
+package priv.cxs.drools.usetest.drls.fireroom;
 
 import lombok.Builder;
 import lombok.Data;

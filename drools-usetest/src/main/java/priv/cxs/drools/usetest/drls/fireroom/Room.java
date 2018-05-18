@@ -1,4 +1,4 @@
-package priv.cxs.drools.usetest.fireroom;
+package priv.cxs.drools.usetest.drls.fireroom;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,9 +11,7 @@ import lombok.Data;
  **/
 @Data
 @Builder
-public class Sprinkler {
+public class Room {
 
-    private Room room;
-
-    private boolean on;
+    private String name;
 }

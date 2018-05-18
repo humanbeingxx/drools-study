@@ -1,4 +1,4 @@
-package priv.cxs.drools.usetest.fireroom
+package priv.cxs.drools.usetest.drls.fireroom
 
 rule "Raise the alarm when we have one or more fires"
 

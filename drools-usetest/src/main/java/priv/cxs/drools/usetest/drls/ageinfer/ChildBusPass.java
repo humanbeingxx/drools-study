@@ -1,4 +1,4 @@
-package priv.cxs.drools.usetest.ageinfer;
+package priv.cxs.drools.usetest.drls.ageinfer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdultBusPass {
+public class ChildBusPass {
 
     private Person person;
 }

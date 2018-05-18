@@ -1,8 +1,7 @@
-package priv.cxs.drools.usetest.cashflow;
+package priv.cxs.drools.usetest.drls.cashflow;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 /**
 
