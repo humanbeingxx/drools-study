@@ -1,6 +1,7 @@
 package priv.cxs.drools.usetest.drls.ageinfer;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
  * @date 2018/5/15 下午3:28
  **/
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Person {

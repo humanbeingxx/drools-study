@@ -44,8 +44,6 @@ public class SheetRulesTest {
          */
 
         Assert.assertEquals(99, person.getAge());
-
-
     }
 
     @Test
@@ -62,6 +60,14 @@ public class SheetRulesTest {
         session.fireAllRules();
 
         System.out.println(complicatedUse);
+
+        // 文档上说在action中也可以使用forall，但是没写对。。。
+
+    }
+
+    @Test
+    public void testSeeSheet() {
+        System.out.println(DroolsUtils.translateTable("/rules/sheet_drools.xlsx"));
     }
 
     @Test

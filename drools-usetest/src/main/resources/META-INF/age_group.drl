@@ -1,0 +1,72 @@
+package priv.cxs.drools.usetest.drls.ageinfer
+
+query "query-age"
+    $person : Person(age > 10)
+end
+
+rule "salience 1"
+
+salience 10
+
+when
+    $p : Person(age == 10)
+then
+    System.out.println("this is from group first");
+end
+
+rule "salience 2"
+
+salience 20
+
+when
+    $p : Person(age == 10)
+then
+    System.out.println("this is from group second");
+end
+
+
+rule "Age Group Default"
+
+salience 100
+
+when
+    $p : Person(age == 20)
+then
+    System.out.println("this is from group default");
+end
+
+rule "Age Group First"
+
+agenda-group "first"
+
+salience 50
+
+when
+    $p : Person(age == 20)
+then
+    System.out.println("this is from group first");
+end
+
+rule "Age Group second-10"
+
+agenda-group "second"
+
+salience 10
+
+when
+    $p : Person(age == 20)
+then
+    System.out.println("this is from group second-10");
+end
+
+rule "Age Group second-20"
+
+agenda-group "second"
+
+salience 20
+
+when
+    $p : Person(age == 20)
+then
+    System.out.println("this is from group second-20");
+end

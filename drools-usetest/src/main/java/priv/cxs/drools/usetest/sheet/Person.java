@@ -1,6 +1,6 @@
 package priv.cxs.drools.usetest.sheet;
 
-import lombok.Data;
+import lombok.*;
 
 /**
  * Copyright © 2018 QUNAR.COM. All rights reserved.
@@ -8,6 +8,10 @@ import lombok.Data;
  * @author xiaoshuang.cui
  * @date 2018/5/15 下午10:52
  **/
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Person {
 
     private int age;
