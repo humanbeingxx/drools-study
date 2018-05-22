@@ -70,3 +70,28 @@ when
 then
     System.out.println("this is from group second-20");
 end
+
+
+rule "Activation Group 1"
+
+activation-group "activation-group"
+
+salience 10
+
+when
+    $p : Person(age == 30)
+then
+    System.out.println("this is from activation group 1");
+end
+
+rule "Activation Group 2"
+
+activation-group "activation-group"
+
+salience 20
+
+when
+    $p : Person(age == 30)
+then
+    System.out.println("this is from activation group 2");
+end

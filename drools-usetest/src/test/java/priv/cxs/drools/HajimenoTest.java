@@ -89,5 +89,6 @@ public class HajimenoTest {
                 kieServices.newReleaseId("priv.cxs", "drools-repo", "LATEST"));
 
         Assert.assertNotNull(kieContainer);
+
     }
 }
