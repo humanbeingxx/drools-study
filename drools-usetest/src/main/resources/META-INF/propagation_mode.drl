@@ -1,0 +1,23 @@
+dialect  "mvel"
+
+query Q (Integer i)
+    String( this == i.toString() )
+end
+
+rule "propagation_mode_immediate" @Propagation(IMMEDIATE)
+
+when
+    $i : Integer()
+    ?Q ($i;)
+then
+    System.out.println("propagation_mode_immediate rule firing");
+end
+
+rule "propagation_mode_lazy"
+
+when
+    $i : Integer()
+    ?Q ($i;)
+then
+    System.out.println("propagation_mode_lazy rule firing");
+end

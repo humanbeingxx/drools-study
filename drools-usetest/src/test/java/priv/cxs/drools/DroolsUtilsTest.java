@@ -1,6 +1,7 @@
-package priv.cxs.drools.usetest;
+package priv.cxs.drools;
 
 import org.junit.Test;
+import priv.cxs.drools.usetest.DroolsUtils;
 
 import static org.junit.Assert.*;
 
