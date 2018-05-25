@@ -31,8 +31,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId></artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.29</version>
         </dependency>
     </dependencies>
 

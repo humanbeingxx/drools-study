@@ -1,6 +1,5 @@
 package priv.cxs.drools;
 
-import lombok.Data;
 import org.drools.core.base.RuleNameMatchesAgendaFilter;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;

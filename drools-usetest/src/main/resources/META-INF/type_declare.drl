@@ -1,0 +1,73 @@
+package priv.cxs.drools.usetest.drls.declaration;
+
+import com.alibaba.fastjson.JSON
+import java.util.Date
+
+declare CopyPerson
+    name : String @key
+    age : Integer
+    birth : Date
+end
+
+declare NamedPerson
+    name : String @key
+    age : Integer
+    birth : Date
+end
+
+rule "type_declare"
+when
+    $map : java.util.HashMap()
+then
+    CopyPerson p = new CopyPerson();
+    p.setName(String.valueOf($map.get("name")));
+    p.setAge((Integer)$map.get("age"));
+    p.setBirth((Date)$map.get("birth"));
+    System.out.println(JSON.toJSON(p));
+end
+
+rule "type_declare_key"
+when
+then
+    NamedPerson namedPerson1 = new NamedPerson("person1");
+//    namedPerson1.setName("person1");
+    namedPerson1.setAge(10);
+
+    NamedPerson namedPerson2 = new NamedPerson("person1");
+//    namedPerson2.setName("person1");
+    namedPerson2.setAge(20);
+
+    System.out.println(namedPerson1.equals(namedPerson2));
+end
+
+
+declare Something
+    name : String
+    type : String
+    value : String @position(1)
+end
+
+rule "type_declare_position"
+
+when
+//    $sth : Something("person", "type_declare_position", "no position for me";)
+//    $sth : Something("person"; value == "no position for me", name =="type_declare_position")
+//    $sth : Something("person", "type_declare_position", "no position for me";)
+//    $sth : Something("type_declare_position", "no position for me", "person";)
+    $che : SeasonedCheese(1, new Date(), "name", "shopt", "country", "origin";)
+then
+    System.out.println("type_declare_position fired");
+end
+
+// 测试继承position
+declare Cheese
+    name : String
+    shop : String @position(2)
+    price : int @position(0)
+end
+
+declare SeasonedCheese extends Cheese
+    year : Date @position(0)
+    origin : String @position(5)
+    country : String
+end
