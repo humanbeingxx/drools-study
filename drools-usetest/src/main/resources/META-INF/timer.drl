@@ -1,0 +1,9 @@
+package priv.cxs.drools.usetest.drls.timetest;
+
+rule "timer_run"
+timer(int:1s 1s)
+when
+    $t : TimeCondition(active == true)
+then
+    System.out.println($t.getName());
+end

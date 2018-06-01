@@ -5,7 +5,7 @@ rule "Test Mode 1"
 when
     $p : Person(age == 10)
 then
-    System.out.println("this is from Test Mode 1");
+    System.out.println("this is fromcaution Test Mode 1");
 end
 
 rule "Test Mode 2"
@@ -13,7 +13,7 @@ rule "Test Mode 2"
 when
     $p : Person(age == 20)
 then
-    System.out.println("this is from Test Mode 2");
+    System.out.println("this is fromcaution Test Mode 2");
 end
 
 rule "Test Mode 3"
@@ -21,5 +21,5 @@ rule "Test Mode 3"
 when
     $p : Person(age == 30)
 then
-    System.out.println("this is from Test Mode 3");
+    System.out.println("this is fromcaution Test Mode 3");
 end

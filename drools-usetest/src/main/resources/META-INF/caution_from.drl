@@ -1,0 +1,26 @@
+package priv.cxs.drools.usetest.drls.fromcaution;
+
+rule "caution_from_1"
+agenda-group "test"
+lock-on-active true
+auto-focus true
+
+when
+    $p : Person(name == "cxs")
+//    $a : Address() from $p.address
+then
+    System.out.println("Should this fire?");
+end
+
+rule "caution_from_2"
+agenda-group "test"
+lock-on-active true
+auto-focus true
+
+when
+    $p : Person()
+    $a : Address(street == "HD") from $p.address
+then
+    System.out.println("change name");
+    modify($p){ setName("cxs") };
+end

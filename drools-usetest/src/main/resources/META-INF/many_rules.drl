@@ -1,0 +1,49 @@
+package priv.cxs.drools.usetest.drls.manyrules;
+
+rule "Many Rule 1"
+
+when
+    not Rejection()
+    $p : Policy(approved == false)
+    exists Driver(age >= 18)
+then
+    $p.setApproved(true);
+end
+
+rule "Many Rule 2.1"
+no-loop
+
+when
+    $p : Policy(approved == false)
+then
+    System.out.println("approved == false");
+    $p.setApproved(false);
+    update($p)
+end
+
+rule "eval(true)"
+
+when
+    eval(true)
+then
+    System.out.println("always true");
+end
+
+rule "From Rule 001"
+
+when
+    Airplane($pilot : pilot)
+    Pilot(name == "cxs") from $pilot
+then
+    System.out.println("From Rule 001 fired");
+end
+
+
+rule "From Rule 002"
+
+when
+    $plane : Airplane($pilot : pilot)
+    Pilot(name str[startsWith] "cxs00") from $plane.vicePilots
+then
+    System.out.println("From Rule 002 fired");
+end

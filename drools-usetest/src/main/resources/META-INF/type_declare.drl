@@ -1,4 +1,4 @@
-package priv.cxs.drools.usetest.drls.declaration;
+package priv.cxs.drools.usetest.drls;
 
 import com.alibaba.fastjson.JSON
 import java.util.Date
@@ -67,7 +67,63 @@ declare Cheese
 end
 
 declare SeasonedCheese extends Cheese
-    year : Date @position(0)
+    year : Date @position(1)
     origin : String @position(5)
     country : String
+end
+
+rule "value_bind_1"
+
+when
+    Applicant($age : age * 2 > 30)
+then
+    System.out.println($age);
+end
+
+
+rule "value_bind_2"
+
+when
+    Applicant($age : (age * 2 > 30))
+then
+    System.out.println($age);
+end
+
+
+rule "unification"
+
+when
+    $a1 : Applicant($age := age)
+    $a2 : Applicant2((age * 2) == $age)
+then
+    System.out.println($a1);
+    System.out.println($a2);
+end
+
+rule "or_fire"
+
+when
+    Applicant(age > 1)
+    or
+    Applicant(age > 2)
+then
+    System.out.println("or fired");
+end
+
+rule "exist_fire"
+
+when
+    exists Applicant(age > 1)
+then
+    System.out.println("exist fired");
+end
+
+
+
+rule "forall_fire"
+
+when
+    forall (Applicant(age == 16))
+then
+    System.out.println("forall_fire");
 end

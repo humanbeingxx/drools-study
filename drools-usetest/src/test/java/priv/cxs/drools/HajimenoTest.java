@@ -73,12 +73,12 @@ public class HajimenoTest {
         KieSession kSession1_1 = kieContainer.newKieSession("KSession1_1");
         StatelessKieSession kSession1_2 = kieContainer.newStatelessKieSession("KSession1_2");
 
-        kSession1_1.setGlobal("out", "out from kSession1_1");
-        Assert.assertEquals("out from kSession1_1", kSession1_1.getGlobal("out"));
+        kSession1_1.setGlobal("out", "out fromcaution kSession1_1");
+        Assert.assertEquals("out fromcaution kSession1_1", kSession1_1.getGlobal("out"));
 
-        kSession1_2.setGlobal("out", "out from kSession1_2");
-        Assert.assertEquals("out from kSession1_2", kSession1_2.getGlobals().get("out"));
-        Assert.assertEquals("out from kSession1_1", kSession1_1.getGlobal("out"));
+        kSession1_2.setGlobal("out", "out fromcaution kSession1_2");
+        Assert.assertEquals("out fromcaution kSession1_2", kSession1_2.getGlobals().get("out"));
+        Assert.assertEquals("out fromcaution kSession1_1", kSession1_1.getGlobal("out"));
     }
 
     @Test
