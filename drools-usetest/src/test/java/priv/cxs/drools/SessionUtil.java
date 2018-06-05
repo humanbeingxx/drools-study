@@ -13,20 +13,20 @@ import org.kie.api.runtime.StatelessKieSession;
  **/
 public class SessionUtil {
 
-    static StatelessKieSession getStatelessSession() {
+    public static StatelessKieSession getStatelessSession() {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.newKieClasspathContainer();
         return kieContainer.newStatelessKieSession("KSession1_2");
     }
 
-    static KieSession getStatefulSession() {
+    public static KieSession getStatefulSession() {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.newKieClasspathContainer();
         kieContainer.newKieSession("sheetSession");
         return kieContainer.newKieSession("KSession1_1");
     }
 
-    static KieSession getSheetSession() {
+    public static KieSession getSheetSession() {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
         return kieContainer.newKieSession("sheetSession");

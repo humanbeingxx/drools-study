@@ -1,5 +1,11 @@
 package priv.cxs.drools.usetest.drls.fromcaution;
 
+import java.util.ArrayList
+
+query checkLength(String $s, int $l)
+    $s := String( length == $l )
+end
+
 rule "caution_from_1"
 agenda-group "test"
 lock-on-active true
@@ -23,4 +29,46 @@ when
 then
     System.out.println("change name");
     modify($p){ setName("cxs") };
+end
+
+
+rule "caution_from_self"
+//activation-group "test_self"
+//lock-on-active true
+//auto-focus true
+
+when
+    $p : Person()
+//    $t : String() from $p.titles
+then
+    System.out.println($p.toString());
+//    modify($p){ setName("cxs") };
+end
+
+rule "collect_person_gender"
+
+when
+    $t : ArrayList() from collect(Person(gender == "m"))
+then
+    System.out.println($t);
+end
+
+
+rule "collect_accumulate_1"
+
+when
+  $x : Object() from accumulate(Person( $title : titles ), collectList( $title ) )
+then
+  System.out.println($x);
+end
+
+
+rule "collect_accumulate_2"
+
+when
+  $xxx : Object() from accumulate(Person( $title : titles ), collectList( $title ) )
+  $xx : Object() from $xxx
+  $x : Object() from $xx
+then
+  System.out.println($x);
 end

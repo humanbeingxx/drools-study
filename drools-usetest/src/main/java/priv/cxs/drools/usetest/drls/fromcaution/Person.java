@@ -2,6 +2,8 @@ package priv.cxs.drools.usetest.drls.fromcaution;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * Copyright © 2018 QUNAR.COM. All rights reserved.
  *
@@ -13,9 +15,13 @@ public class Person {
 
     private String name;
 
+    private String gender;
+
     private Address address;
 
     private String prefix;
 
     private String suffix;
+
+    private List<String> titles;
 }

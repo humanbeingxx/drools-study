@@ -1,0 +1,35 @@
+package priv.cxs.drools.usetest.official.state;
+dialect  "mvel"
+
+declare type State
+    @propertyChangeSupport
+end
+
+rule "State bootstrap"
+when
+    $s : State(name == "A", state == State.START)
+then
+    System.out.println("A ready");
+    $s.setState(State.STOP);
+end
+
+rule "State A TO B"
+
+when
+    $a : State(name == "A", state == State.STOP)
+    $b : State(name == "B", state == State.START)
+then
+    System.out.println("A TO B");
+    $b.setState(State.STOP);
+end
+
+
+rule "State B TO C"
+
+when
+    $b : State(name == "B", state == State.STOP)
+    $c : State(name == "C", state == State.START)
+then
+    System.out.println("B TO C");
+    $c.setState(State.STOP);
+end
