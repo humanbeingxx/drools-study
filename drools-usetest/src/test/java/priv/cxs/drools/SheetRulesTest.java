@@ -67,11 +67,11 @@ public class SheetRulesTest {
 
     @Test
     public void testSeeSheet() {
-        System.out.println(DroolsUtils.translateTable("/rules/sheet_drools.xlsx"));
+        System.out.println(DroolsUtils.translateTable("/dtable/sheet_drools.xlsx"));
     }
 
     @Test
     public void testSeeComplicateFile() {
-        System.out.println(DroolsUtils.translateTable("/rules/complicated_rule.xlsx"));
+        System.out.println(DroolsUtils.translateTable("/dtable/complicated_rule.xlsx"));
     }
 }

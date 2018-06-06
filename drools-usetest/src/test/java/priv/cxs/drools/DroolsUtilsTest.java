@@ -3,8 +3,6 @@ package priv.cxs.drools;
 import org.junit.Test;
 import priv.cxs.drools.usetest.DroolsUtils;
 
-import static org.junit.Assert.*;
-
 /**
  * Copyright © 2018 QUNAR.COM. All rights reserved.
  *
@@ -14,7 +12,7 @@ import static org.junit.Assert.*;
 public class DroolsUtilsTest {
     @Test
     public void testTranslateTable() throws Exception {
-        System.out.println(DroolsUtils.translateTable("/rules/sheet_drools.xlsx"));
+        System.out.println(DroolsUtils.translateTable("/dtable/sheet_drools.xlsx"));
     }
 
 }

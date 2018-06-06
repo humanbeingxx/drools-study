@@ -8,7 +8,7 @@
         <ksession name="KSession2_1" type="stateful"/>
         <ksession name="KSession2_2" type="stateless" default="false" beliefSystem="jtms"/>
     </kbase>
-    <kbase name="KBase3" packages="rules" declarativeAgenda="enabled">
+    <kbase name="KBase3" packages="dtable" declarativeAgenda="enabled">
         <ksession name="sheetSession" type="stateful" default="false"/>
     </kbase>
 </kmodule>
