@@ -1,6 +1,9 @@
 package priv.cxs.drools;
 
+import org.kie.api.KieBase;
+import org.kie.api.KieBaseConfiguration;
 import org.kie.api.KieServices;
+import org.kie.api.conf.EventProcessingOption;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.StatelessKieSession;
@@ -22,7 +25,6 @@ public class SessionUtil {
     public static KieSession getStatefulSession() {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.newKieClasspathContainer();
-        kieContainer.newKieSession("sheetSession");
         return kieContainer.newKieSession("KSession1_1");
     }
 
@@ -30,5 +32,17 @@ public class SessionUtil {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
         return kieContainer.newKieSession("sheetSession");
+    }
+
+    public static KieSession getStreamSession() {
+        KieServices kieServices = KieServices.Factory.get();
+        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        return kieContainer.newKieSession("streamSession");
+    }
+
+    public static KieSession getPseudoSession() {
+        KieServices kieServices = KieServices.Factory.get();
+        KieContainer kieContainer = kieServices.newKieClasspathContainer();
+        return kieContainer.newKieSession("pseudoSession");
     }
 }

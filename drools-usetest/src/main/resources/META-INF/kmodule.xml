@@ -11,4 +11,8 @@
     <kbase name="KBase3" packages="dtable" declarativeAgenda="enabled">
         <ksession name="sheetSession" type="stateful" default="false"/>
     </kbase>
+    <kbase name="StreamBase" equalsBehavior="equality" declarativeAgenda="enabled" eventProcessingMode="stream">
+        <ksession name="streamSession" type="stateful" default="true"/>
+        <ksession name="pseudoSession" type="stateful" default="true" clockType="pseudo"/>
+    </kbase>
 </kmodule>

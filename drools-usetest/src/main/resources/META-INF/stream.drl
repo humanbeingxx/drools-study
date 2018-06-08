@@ -1,0 +1,86 @@
+package priv.cxs.drools.usetest.drls.stream;
+
+declare Fire
+    @role(event)
+end
+
+declare SprinklerActivated
+    @role(event)
+end
+
+declare Degree
+    @role(event)
+end
+
+declare DegreeThreshold
+    @role(event)
+end
+
+rule "stream : not wait"
+when
+    $f : Fire()
+    not( SprinklerActivated())
+then
+    System.out.println(System.currentTimeMillis() + " alarming when not wait");
+end
+
+
+rule "stream : wait"
+when
+    $f : Fire()
+    not( SprinklerActivated(this after [0s, 3s] $f))
+then
+    System.out.println(System.currentTimeMillis() + " alarming when wait");
+end
+
+
+rule "stream : accumulate degree with window"
+when
+    DegreeThreshold($max:max)
+    Number(intValue > $max) from accumulate(
+                                   Degree( $temp : value ) over window:time( 10s ),
+                                   sum( $temp ) )
+then
+    System.out.println("woo, it works with window");
+end
+
+rule "stream : accumulate degree no window"
+when
+    DegreeThreshold($max:max)
+    Number(intValue > $max) from accumulate(
+                                   Degree( $temp : value ),
+                                   sum( $temp ) )
+then
+    System.out.println("woo, it works no window");
+end
+
+
+rule "stream : accumulate degree by length 1"
+when
+    DegreeThreshold($max:max)
+    Number(intValue > $max) from accumulate(
+                                   Degree( $temp : value ) over window:length(1),
+                                   sum( $temp ) )
+then
+    System.out.println("woo, it works by length 1");
+end
+
+rule "stream : accumulate degree by length 2"
+when
+    DegreeThreshold($max:max)
+    Number(intValue > $max) from accumulate(
+                                   Degree( $temp : value ) over window:length(2),
+                                   sum( $temp ) )
+then
+    System.out.println("woo, it works by length 2");
+end
+
+rule "stream : accumulate degree by length 3"
+when
+    DegreeThreshold($max:max)
+    Number(intValue > $max) from accumulate(
+                                   Degree( $temp : value ) over window:length(3),
+                                   sum( $temp ) )
+then
+    System.out.println("woo, it works by length 3");
+end

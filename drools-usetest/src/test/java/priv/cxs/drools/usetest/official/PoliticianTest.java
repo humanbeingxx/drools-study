@@ -1,5 +1,6 @@
 package priv.cxs.drools.usetest.official;
 
+import org.drools.core.base.RuleNameStartsWithAgendaFilter;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
 import priv.cxs.drools.SessionUtil;
@@ -26,6 +27,6 @@ public class PoliticianTest {
         session.insert( bush );
         session.insert( chirac );
         session.insert( schroder );
-        session.fireAllRules();
+        session.fireAllRules(new RuleNameStartsWithAgendaFilter("PoliticianRule"));
     }
 }
