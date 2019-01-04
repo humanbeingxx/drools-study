@@ -3,6 +3,7 @@ package priv.cxs.drools;
 import com.google.common.collect.Maps;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.FactHandle;
 import priv.cxs.drools.usetest.drls.fireroom.Fire;
 import priv.cxs.drools.usetest.drls.fireroom.Room;
 import priv.cxs.drools.usetest.drls.fireroom.Sprinkler;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 public class FireRoomTest {
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
         KieSession session = SessionUtil.getStatefulSession();
         String[] names = new String[] {"kitchen", "office", "livingroom"};
         HashMap<String, Room> name2room = Maps.newHashMap();
@@ -35,9 +36,21 @@ public class FireRoomTest {
         Fire officeFire = Fire.builder().room(name2room.get("office")).build();
         Fire kitchenFire = Fire.builder().room(name2room.get("kitchen")).build();
 
-        session.insert(kitchenFire);
-        session.insert(officeFire);
+        FactHandle kitchenFireHandler = session.insert(kitchenFire);
+        FactHandle officeFireHandler = session.insert(officeFire);
 
+        new Thread(() -> {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            session.delete(kitchenFireHandler);
+            session.delete(officeFireHandler);
+            session.fireAllRules();
+        }).start();
         session.fireAllRules();
+
+        Thread.sleep(200);
     }
 }

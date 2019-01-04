@@ -37,7 +37,7 @@ public class FibonacciTest {
 
     @Test
     public void testManual() {
-        Fibonacci result = calculate(2);
+        Fibonacci result = calculate(4);
         System.out.println(result);
     }
 
